@@ -1,6 +1,6 @@
 //
 //  ofxAudioDecoderTonic.h
-//  Colony
+//  ofxAudioDecoder
 //
 //  Created by Elias Zananiri on 2015-04-23.
 //
@@ -12,14 +12,14 @@
 #include "ofxAudioDecoder.h"
 #include "SampleTable.h" // Tonic
 
-Tonic::SampleTable ofxAudioDecoderTonic(ofxAudioDecoder& audioDecoder)
+static Tonic::SampleTable ofxAudioDecoderTonic(ofxAudioDecoder& audioDecoder)
 {
     Tonic::SampleTable sampleTable = Tonic::SampleTable(audioDecoder.getNumFrames(), audioDecoder.getChannels());
     memcpy(sampleTable.dataPointer(), audioDecoder.getRawSamples().data(), audioDecoder.getNumSamples() * sizeof(float));
     return sampleTable;
 }
 
-Tonic::SampleTable ofxAudioDecoderTonic(const string& path)
+static Tonic::SampleTable ofxAudioDecoderTonic(const string& path)
 {
     ofxAudioDecoder audioDecoder;
     audioDecoder.load(path);
