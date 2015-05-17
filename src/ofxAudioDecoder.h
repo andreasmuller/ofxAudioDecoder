@@ -27,8 +27,9 @@ public:
 	}
 	void load(string filename, unsigned long framesToRead = 0) {
 		AudioDecoder audioDecoder(ofToDataPath(filename));
-    if (audioDecoder.open() != AUDIODECODER_OK) {
+        if (audioDecoder.open() != AUDIODECODER_OK) {
 			ofLogError() << "Failed to load " << filename;
+            return;
 		}
 		
 		int numSamples = audioDecoder.numSamples();
