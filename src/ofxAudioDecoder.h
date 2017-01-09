@@ -13,7 +13,7 @@ public:
 	:channels(0)
 	,sampleRate(0) {
 	}
-	int getChannels() const {
+	int getNumChannels() const {
 		return channels;
 	}
 	int getSampleRate() const {
